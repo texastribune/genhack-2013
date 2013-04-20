@@ -10,6 +10,7 @@ class Game
 class Round
   constructor: (data) ->
     @tiles = data.tiles
+    @correct = data.correct
     @success = data.success
 
   display: ->
