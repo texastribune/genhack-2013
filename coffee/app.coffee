@@ -14,8 +14,15 @@ class Round
     @success = data.success
 
   display: ->
-    console.log @tiles, @success
+    $canvas.empty()
+    for tile, idx in @tiles
+      $tile = $("<img src='#{tile}'>")
+      if @correct.indexOf(idx) != -1
+        $tile.addClass('correct')
+      $tile.appendTo $canvas
+      console.log tile, idx
 
+$canvas = $('#canvas')
 
 main = ->
   g = new Game()
