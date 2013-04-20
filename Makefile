@@ -5,10 +5,10 @@ build:
 
 
 dev:
-	@$(MAKE) -s -j2 devdev
+	@$(MAKE) -s -j3 devdev
 
 
-devdev: server csswatch
+devdev: server csswatch jswatch
 
 
 server:
@@ -17,5 +17,9 @@ server:
 csswatch:
 	sass --compass --watch sass:css
 
+# npm install coffee-script
+jswatch:
+	coffee -wc -j app.coffee coffee/
 
-.PHONY: all build dev devdev server
+
+.PHONY: all build dev devdev server csswatch jswatch
