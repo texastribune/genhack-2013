@@ -3,7 +3,15 @@ class Game
     @rounds = []
 
   addRound: (round) ->
+    round.game = this
     @rounds.push(round)
+
+  next: ->
+    if @rounds.length
+      @currentRound = @rounds.shift()
+      @currentRound.display()
+    else
+      console.log 'no more rounds!'
 
 
 # A round of the game
@@ -23,6 +31,8 @@ class Round
         console.log 'yay'
       else
         console.log 'boooo'
+      g.next()
+
 
   display: ->
     $canvas.empty()
@@ -35,6 +45,7 @@ class Round
 
 
 $canvas = $('#canvas')
+g = null  # scope hack
 
 main = ->
   g = new Game()
@@ -42,6 +53,7 @@ main = ->
   for round in rounds
     r = new Round(round)
     g.addRound(r)
-    r.display()
+
+  g.next()
 
 $ main
