@@ -7,7 +7,7 @@ body {
   width: 100%; }
 
 header, footer {
-  font-family: "Knockout 29 A", "Knockout 29 B";
+  font-family: "LeagueGothicRegular";
   font-size: 1.5em;
   text-transform: uppercase;
   padding: 0 2px; }
@@ -31,11 +31,12 @@ footer {
     color: red; }
 
 .notice {
-  font-family: "Knockout 49 A", "Knockout 49 B";
-  font-size: 2em;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.6em;
+  font-weight: bold;
   left: 0;
   position: absolute;
-  top: 0;
+  top: 10px;
   z-index: 10; }
   .notice a {
     color: inherit;
