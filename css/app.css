@@ -11,6 +11,9 @@ body {
   left: 0; }
 
 .tile {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-transition-property: border-width, height;
   -moz-transition-property: border-width, height;
   -o-transition-property: border-width, height;
@@ -20,7 +23,6 @@ body {
   -o-transition-duration: 2s;
   transition-duration: 2s;
   border: 4px solid gray;
-  box-sizing: border-box;
   float: left;
   height: 168px;
   overflow: hidden;
@@ -35,13 +37,14 @@ body {
     -o-transition-duration: 2s;
     transition-duration: 2s;
     display: block;
-    position: relative; }
+    position: relative;
+    top: 0; }
 
 .active, .inactive {
-  border-top-width: 24px;
-  border-bottom-width: 24px; }
+  border-top-width: 29px;
+  border-bottom-width: 29px; }
   .active > img, .inactive > img {
-    top: -20px; }
+    top: -25px; }
 
 .active {
   border-color: red; }
