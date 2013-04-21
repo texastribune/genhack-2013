@@ -50,6 +50,8 @@ class Round
     $canvas.empty()
     for tile, idx in @tiles
       $tile = $("<div class='tile'><img src='#{tile}'></div>")
+      $tile
+        .find('img')[0].draggable = false
       if @correct.indexOf(idx) != -1
         $tile.addClass('correct')
       $tile.on('click', @click)

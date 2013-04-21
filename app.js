@@ -84,6 +84,7 @@
       for (idx = _i = 0, _len = _ref.length; _i < _len; idx = ++_i) {
         tile = _ref[idx];
         $tile = $("<div class='tile'><img src='" + tile + "'></div>");
+        $tile.find('img')[0].draggable = false;
         if (this.correct.indexOf(idx) !== -1) {
           $tile.addClass('correct');
         }
