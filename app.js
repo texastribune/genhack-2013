@@ -47,7 +47,7 @@
     };
 
     Game.prototype.check = function() {
-      var $active, $correct, $tiles, self;
+      var $active, $correct, $tiles, apos0, apos1, apos2, apos3, free, lookup, self;
       self = this;
       $tiles = $canvas.find('.tile');
       $correct = $tiles.filter('.correct');
@@ -61,15 +61,40 @@
       }
       if ($correct.length === $active.length) {
         $tiles.off('.game').not('.active').addClass('end');
+        apos0 = $active.filter('.pos-0').length;
+        apos1 = $active.filter('.pos-1').length;
+        apos2 = $active.filter('.pos-2').length;
+        apos3 = $active.filter('.pos-3').length;
+        lookup = "" + apos0 + apos1 + apos2 + apos3;
+        free = [0, 1];
+        if (apos0) {
+          free.shift();
+        }
+        if (apos1) {
+          free.pop();
+        }
+        switch (lookup) {
+          case "1010":
+            $active.filter('.pos-2').addClass('shiftNE');
+            break;
+          case "1001":
+            $active.filter('.pos-3').addClass('shiftN');
+            break;
+          case "0011":
+            $active.addClass('shiftN');
+            break;
+          case "0110":
+            $active.filter('.pos-2').addClass('shiftN');
+            break;
+          case "0101":
+            $active.filter('.pos-3').addClass('shiftNW');
+        }
         if ($correct.not('.active').length === 0) {
           $canvas.addClass('correct');
-          this.showSuccess();
+          return this.showSuccess();
         } else {
-          this.showFailure();
+          return this.showFailure();
         }
-        return setTimeout(function() {
-          return self.next();
-        }, 5000);
       }
     };
 

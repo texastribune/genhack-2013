@@ -25,6 +25,7 @@ body
   color: #eee
   margin: 0 auto
   max-width: $columns * $boxWidth
+  overflow: hidden
   width: 100%
 
 header, footer
@@ -94,3 +95,13 @@ header, footer
 
 .pos-3
   +_pos(3)
+
+
+.shiftN.active  // need scope hack
+  +transform(translate3d(0, -$boxHeight - 10px, 0))
+
+.shiftNE.active  // need scope hack
+  +transform(translate3d($boxWidth, -$boxHeight - 10px, 0))
+
+.shiftNW.active  // need scope hack
+  +transform(translate3d(-$boxWidth, -$boxHeight - 10px, 0))
