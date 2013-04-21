@@ -1,11 +1,14 @@
 body {
+  background: #333333;
+  color: #eeeeee;
   margin: 0 auto;
   max-width: 336px;
   width: 100%; }
 
 header, footer {
-  font-family: "Knockout 49 A", "Knockout 49 B";
-  font-size: 1.5em; }
+  font-family: "Knockout 29 A", "Knockout 29 B";
+  font-size: 1.5em;
+  text-transform: uppercase; }
 
 #canvas {
   position: relative; }
@@ -29,7 +32,7 @@ header, footer {
   transition-duration: 2s;
   border: 4px solid gray;
   float: left;
-  height: 168px;
+  height: 128px;
   overflow: hidden;
   width: 50%; }
   .tile > img {

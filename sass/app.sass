@@ -3,7 +3,8 @@
 
 $columns: 2
 $imgWidth: 160px
-$imgHeight: 160px
+// $imgHeight: 160px
+$imgHeight: $imgWidth * 3 / 4
 $borderWidth: 4px
 $boxWidth: $imgWidth + 2 * $borderWidth
 $boxHeight: $imgHeight + 2 * $borderWidth
@@ -15,10 +16,12 @@ $knockout29: 'Knockout 29 A', 'Knockout 29 B'
 $knockout49: 'Knockout 49 A','Knockout 49 B'
 $knockout50: 'Knockout 50 A', 'Knockout 50 B'
 
-$headingFontFamily: $knockout49
+$headingFontFamily: $knockout29
 
 
 body
+  background: #333
+  color: #eee
   margin: 0 auto
   max-width: $columns * $boxWidth
   width: 100%
@@ -26,6 +29,7 @@ body
 header, footer
   font-family: $headingFontFamily
   font-size: 1.5em
+  text-transform: uppercase
 
 #canvas
   position: relative
