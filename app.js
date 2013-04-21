@@ -9,14 +9,14 @@
       success: 'Texas Roads Paved With Taxes, Tolls and Debt',
       url: 'http://www.texastribune.org/2013/04/08/texas-roads-paved-taxes-tolls-and-debt/'
     }, {
-      tiles: ['http://i.imgur.com/IreOao5.jpg', 'http://i.imgur.com/jg0tmZd.jpg', 'http://i.imgur.com/BENr5Mr.jpg', 'http://i.imgur.com/eTPA2BJ.jpg'],
+      tiles: ['http://s3.amazonaws.com/static.texastribune.org/media/images/2013/03/19/Norwood-2_jpg_312x1000_q100.jpg', 'http://i.imgur.com/jg0tmZd.jpg', 'http://i.imgur.com/BENr5Mr.jpg', 'http://i.imgur.com/eTPA2BJ.jpg'],
       correct: [0, 1],
-      success: 'Michael Morton Marks Anniversary of His Release',
+      success: 'After Decades, DNA Testing and a Conviction',
       url: 'http://www.texastribune.org/2012/10/05/video-michael-morton-marks-his-release-anniversary/'
     }, {
       tiles: ['http://i.imgur.com/aelgr6R.jpg', 'http://s3.amazonaws.com/static.texastribune.org/media/images/Powerlines_1_jpg_312x1000_q100.jpg', 'http://i.imgur.com/ZY8wKC9.jpg', 'http://i.imgur.com/bsGjIbo.jpg'],
       correct: [0, 1],
-      success: 'House Passes Public Utility Commission Sunset Bill',
+      success: 'House Passes PUC Sunset Bill',
       url: 'http://www.texastribune.org/2013/03/20/texas-house-proposes-changes-puc/'
     }
   ];
