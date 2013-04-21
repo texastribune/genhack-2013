@@ -6,7 +6,8 @@ rounds = [
       'http://i.imgur.com/THM96Y6.jpg'
     ]
     correct: [0, 1]
-    success: 'You won!'
+    success: 'Texas Roads Paved With Taxes, Tolls and Debt'
+    url: 'http://www.texastribune.org/2013/04/08/texas-roads-paved-taxes-tolls-and-debt/'
 ,
     tiles: [
       'http://i.imgur.com/IreOao5.jpg'
@@ -15,7 +16,18 @@ rounds = [
       'http://i.imgur.com/eTPA2BJ.jpg'
     ]
     correct: [0, 1]
-    success: 'You won!'
+    success: 'Michael Morton Marks Anniversary of His Release'
+    url: 'http://www.texastribune.org/2012/10/05/video-michael-morton-marks-his-release-anniversary/'
+,
+    tiles: [
+      'http://i.imgur.com/aelgr6R.jpg'
+      'http://s3.amazonaws.com/static.texastribune.org/media/images/Powerlines_1_jpg_312x1000_q100.jpg'
+      'http://i.imgur.com/ZY8wKC9.jpg'
+      'http://i.imgur.com/bsGjIbo.jpg'
+    ]
+    correct: [0, 1]
+    success: 'House Passes Public Utility Commission Sunset Bill'
+    url: 'http://www.texastribune.org/2013/03/20/texas-house-proposes-changes-puc/'
 ]
 
 
@@ -34,9 +46,9 @@ images =
     'http://i.imgur.com/IreOao5.jpg'
     'http://i.imgur.com/jg0tmZd.jpg'
     'http://i.imgur.com/aAjkvlD.jpg'
-    'http://i.imgur.com/Jv9X39w.jpg'
+    # 'http://i.imgur.com/Jv9X39w.jpg'
     'http://i.imgur.com/TdevWHU.jpg'
-    'http://i.imgur.com/uVkv9HX.jpg'
+    # 'http://i.imgur.com/uVkv9HX.jpg'
     'http://i.imgur.com/YhBYxzN.jpg'
     'http://i.imgur.com/6kIqk5I.jpg'
   ]
@@ -73,7 +85,7 @@ images =
     'http://i.imgur.com/NXUp5vu.jpg'
     'http://i.imgur.com/ZCMthAF.jpg'
     'http://i.imgur.com/Bs30IFX.jpg'
-    'http://i.imgur.com/v4Y23Z1.jpg'
-    'http://i.imgur.com/NrwkP1d.jpg'
+    # 'http://i.imgur.com/v4Y23Z1.jpg'
+    # 'http://i.imgur.com/NrwkP1d.jpg'
     'http://i.imgur.com/fxZDwYh.jpg'
   ]
