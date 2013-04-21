@@ -10,6 +10,7 @@ class Game
   next: ->
     self = this
     @idx = (@idx + 1) % @rounds.length
+    $canvas.empty().attr('class', '')
     @currentRound = @rounds[@idx]
     @currentRound.display()
     $canvas.find('.tile')
@@ -37,6 +38,7 @@ class Game
       # disable all click handlers
       $tiles.off('.game').not('.active').addClass('inactive')
       if $correct.not('.active').length == 0
+        $canvas.addClass('correct')
         @showSuccess()
       else
         @showFailure()
@@ -66,7 +68,6 @@ class Round
     g.check()
 
   display: ->
-    $canvas.empty()
     for tile, idx in @tiles
       $tile = $("<div class='tile'><img src='#{tile}'></div>")
       $tile

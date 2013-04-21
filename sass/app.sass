@@ -37,7 +37,7 @@ header, footer
 
 .tile
   +box-sizing(border-box)
-  +transition-property(border-width, height)
+  +transition-property(border-color, border-width, height)
   +transition-duration(2s)
   border: $borderWidth solid gray
   float: left
@@ -60,6 +60,9 @@ header, footer
 
 .active
   @extend %narrowed
+  border-color: green
+
+.correct .active
   border-color: lime
 
 .inactive

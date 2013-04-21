@@ -19,10 +19,10 @@ header, footer {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-transition-property: border-width, height;
-  -moz-transition-property: border-width, height;
-  -o-transition-property: border-width, height;
-  transition-property: border-width, height;
+  -webkit-transition-property: border-color, border-width, height;
+  -moz-transition-property: border-color, border-width, height;
+  -o-transition-property: border-color, border-width, height;
+  transition-property: border-color, border-width, height;
   -webkit-transition-duration: 2s;
   -moz-transition-duration: 2s;
   -o-transition-duration: 2s;
@@ -53,6 +53,9 @@ header, footer {
     top: -25px; }
 
 .active {
+  border-color: green; }
+
+.correct .active {
   border-color: lime; }
 
 .inactive > img {

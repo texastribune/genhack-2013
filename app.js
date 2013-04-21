@@ -30,6 +30,7 @@
       var self;
       self = this;
       this.idx = (this.idx + 1) % this.rounds.length;
+      $canvas.empty().attr('class', '');
       this.currentRound = this.rounds[this.idx];
       this.currentRound.display();
       return $canvas.find('.tile').on('mousedown.game', function() {
@@ -61,6 +62,7 @@
       if ($correct.length === $active.length) {
         $tiles.off('.game').not('.active').addClass('inactive');
         if ($correct.not('.active').length === 0) {
+          $canvas.addClass('correct');
           this.showSuccess();
         } else {
           this.showFailure();
@@ -104,7 +106,6 @@
 
     Round.prototype.display = function() {
       var $tile, idx, tile, _i, _len, _ref, _results;
-      $canvas.empty();
       _ref = this.tiles;
       _results = [];
       for (idx = _i = 0, _len = _ref.length; _i < _len; idx = ++_i) {
