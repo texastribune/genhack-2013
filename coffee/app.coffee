@@ -13,14 +13,26 @@ class Round
     @correct = data.correct
     @success = data.success
 
+  click: (e) ->
+    $elem = $(this)
+    $elem.toggleClass('active')
+    $correct = $canvas.find('.correct')
+    $active = $canvas.find('.active')
+    if $correct.length == $active.length
+      if $correct.not('.active').length == 0
+        console.log 'yay'
+      else
+        console.log 'boooo'
+
   display: ->
     $canvas.empty()
     for tile, idx in @tiles
       $tile = $("<img src='#{tile}'>")
       if @correct.indexOf(idx) != -1
         $tile.addClass('correct')
-      $tile.appendTo $canvas
+      $tile.on('click', @click).appendTo($canvas)
       console.log tile, idx
+
 
 $canvas = $('#canvas')
 

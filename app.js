@@ -32,6 +32,21 @@
       this.success = data.success;
     }
 
+    Round.prototype.click = function(e) {
+      var $active, $correct, $elem;
+      $elem = $(this);
+      $elem.toggleClass('active');
+      $correct = $canvas.find('.correct');
+      $active = $canvas.find('.active');
+      if ($correct.length === $active.length) {
+        if ($correct.not('.active').length === 0) {
+          return console.log('yay');
+        } else {
+          return console.log('boooo');
+        }
+      }
+    };
+
     Round.prototype.display = function() {
       var $tile, idx, tile, _i, _len, _ref, _results;
       $canvas.empty();
@@ -43,7 +58,7 @@
         if (this.correct.indexOf(idx) !== -1) {
           $tile.addClass('correct');
         }
-        $tile.appendTo($canvas);
+        $tile.on('click', this.click).appendTo($canvas);
         _results.push(console.log(tile, idx));
       }
       return _results;
