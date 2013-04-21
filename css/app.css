@@ -26,19 +26,25 @@ body {
   overflow: hidden;
   width: 168px; }
   .tile > img {
-    -webkit-transition: top 2s;
-    -moz-transition: top 2s;
-    -o-transition: top 2s;
-    transition: top 2s;
+    -webkit-transition-property: top, opacity;
+    -moz-transition-property: top, opacity;
+    -o-transition-property: top, opacity;
+    transition-property: top, opacity;
+    -webkit-transition-duration: 2s;
+    -moz-transition-duration: 2s;
+    -o-transition-duration: 2s;
+    transition-duration: 2s;
     display: block;
     position: relative; }
 
-.active {
-  border-color: red;
+.active, .inactive {
   border-top-width: 24px;
   border-bottom-width: 24px; }
-  .active > img {
+  .active > img, .inactive > img {
     top: -20px; }
+
+.active {
+  border-color: red; }
 
 .inactive > img {
   opacity: 0.5; }

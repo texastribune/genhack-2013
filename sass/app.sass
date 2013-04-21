@@ -30,17 +30,22 @@ body
   overflow: hidden
   width: $boxWidth
   > img
-    +single-transition(top, 2s)
+    +transition-property(top, opacity)
+    +transition-duration(2s)
     display: block
     position: relative
 
-.active
-  border-color: red
+%narrowed
   border-top-width: $narrowing + $borderWidth
   border-bottom-width: $narrowing + $borderWidth
   > img
     top: -$narrowing
 
+.active
+  @extend %narrowed
+  border-color: red
+
 .inactive
+  @extend %narrowed
   > img
     opacity: 0.5
