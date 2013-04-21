@@ -7,12 +7,17 @@ $columns: 2
 $imgWidth: 160px
 // $imgHeight: 160px
 $imgHeight: $imgWidth * 3 / 4
-$borderWidth: 4px
+$gutterWidth: 4px
+$borderWidth: $gutterWidth / 2
 $boxWidth: $imgWidth + 2 * $borderWidth
 $boxHeight: $imgHeight + 2 * $borderWidth
 
 $narrowing: 25px
 
+// colors
+$backgroundColor: #333
+
+// fonts
 $leaguegothic: 'LeagueGothicRegular'
 $knockout29: 'Knockout 29 A', 'Knockout 29 B'
 $knockout49: 'Knockout 49 A','Knockout 49 B'
@@ -22,7 +27,7 @@ $headingFontFamily: $knockout29
 
 
 body
-  background: #333
+  background: $backgroundColor
   color: #eee
   margin: 0 auto
   max-width: $columns * $boxWidth
@@ -33,6 +38,7 @@ header, footer
   font-family: $headingFontFamily
   font-size: 1.5em
   text-transform: uppercase
+  padding: 0 $borderWidth
 
 #canvas
   position: relative
@@ -49,7 +55,7 @@ header, footer
   +box-sizing(border-box)
   +transition-property(border-color, border-width, height, transform)
   +transition-duration(1s)
-  border: $borderWidth solid gray
+  border: $borderWidth solid $backgroundColor
   float: left
   height: $boxHeight
   overflow: hidden
@@ -71,7 +77,7 @@ header, footer
 
 .active
   // @extend %narrowed
-  border-color: green
+  border-color: red
   z-index: 21
 
 .correct .active
@@ -86,7 +92,7 @@ header, footer
 @mixin _pos($idx)
   +transition-delay(#{$idx / 10}s)
   &.start, &.end
-    +transform(translate3d((($idx % $columns) * 2 - 1) * $boxWidth, (floor($idx / $columns) * 2 - 1) * $boxHeight, 0))
+    +transform(translate3d((($idx % $columns) * 2 - 1) * 1.1 * $boxWidth, (floor($idx / $columns) * 2 - 1) * 1.1 * $boxHeight, 0))
   &.active
     +transform(translate3d((($idx % $columns) * 2 - 1) * 10px, (floor($idx / $columns) * 2 - 1) * 10px, 0))
 
@@ -107,7 +113,7 @@ header, footer
   +transform(translate3d(0, -$boxHeight - 10px, 0))
 
 .shiftNE.active  // need scope hack
-  +transform(translate3d($boxWidth, -$boxHeight - 10px, 0))
+  +transform(translate3d($boxWidth + 10px, -$boxHeight - 10px, 0))
 
 .shiftNW.active  // need scope hack
-  +transform(translate3d(-$boxWidth, -$boxHeight - 10px, 0))
+  +transform(translate3d(-$boxWidth - 10px, -$boxHeight - 10px, 0))
