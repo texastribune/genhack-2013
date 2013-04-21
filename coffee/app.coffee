@@ -43,6 +43,7 @@ class Round
       if Math.random() > 0.5
         $tile.appendTo($canvas)
       else
+        # $tile.appendTo($canvas)
         $tile.prependTo($canvas)
       console.log tile, idx
 
