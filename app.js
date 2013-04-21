@@ -4,12 +4,12 @@
 
   rounds = [
     {
-      tiles: ['http://i.imgur.com/Zbkx6tFb.jpg', 'http://i.imgur.com/ICn6oM3b.jpg', 'http://i.imgur.com/cdXotPXb.jpg', 'http://i.imgur.com/49701U7b.jpg'],
-      correct: [0, 2],
+      tiles: ['http://i.imgur.com/nESJfEd.jpg', 'http://i.imgur.com/iDtOWVT.jpg', 'http://i.imgur.com/TdevWHU.jpg', 'http://i.imgur.com/THM96Y6.jpg'],
+      correct: [0, 1],
       success: 'You won!'
     }, {
-      tiles: ['http://i.imgur.com/iIlPkLsb.jpg', 'http://i.imgur.com/vE34d4Lb.jpg', 'http://i.imgur.com/RNMrLbHb.jpg', 'http://i.imgur.com/nNeCLSWb.jpg'],
-      correct: [1, 3],
+      tiles: ['http://i.imgur.com/IreOao5.jpg', 'http://i.imgur.com/jg0tmZd.jpg', 'http://i.imgur.com/BENr5Mr.jpg', 'http://i.imgur.com/eTPA2BJ.jpg'],
+      correct: [0, 1],
       success: 'You won!'
     }
   ];
