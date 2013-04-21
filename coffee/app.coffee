@@ -81,6 +81,14 @@ class Round
         # $tile.appendTo($canvas)
         $tile.prependTo($canvas)
 
+    $canvas.find('.tile').each((idx)->
+      $(this).addClass("start pos-#{idx}")
+    )
+    setTimeout(->
+      $canvas.find('.tile').removeClass('start')
+      return
+    , 1)
+
 
 $canvas = $('#canvas')
 g = null  # scope hack

@@ -105,9 +105,8 @@
     };
 
     Round.prototype.display = function() {
-      var $tile, idx, tile, _i, _len, _ref, _results;
+      var $tile, idx, tile, _i, _len, _ref;
       _ref = this.tiles;
-      _results = [];
       for (idx = _i = 0, _len = _ref.length; _i < _len; idx = ++_i) {
         tile = _ref[idx];
         $tile = $("<div class='tile'><img src='" + tile + "'></div>");
@@ -117,12 +116,17 @@
         }
         $tile.on('click.game', this.click);
         if (Math.random() > 0.5) {
-          _results.push($tile.appendTo($canvas));
+          $tile.appendTo($canvas);
         } else {
-          _results.push($tile.prependTo($canvas));
+          $tile.prependTo($canvas);
         }
       }
-      return _results;
+      $canvas.find('.tile').each(function(idx) {
+        return $(this).addClass("start pos-" + idx);
+      });
+      return setTimeout(function() {
+        $canvas.find('.tile').removeClass('start');
+      }, 1);
     };
 
     return Round;

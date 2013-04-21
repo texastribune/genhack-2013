@@ -22,14 +22,14 @@ header, footer {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-transition-property: border-color, border-width, height;
-  -moz-transition-property: border-color, border-width, height;
-  -o-transition-property: border-color, border-width, height;
-  transition-property: border-color, border-width, height;
-  -webkit-transition-duration: 2s;
-  -moz-transition-duration: 2s;
-  -o-transition-duration: 2s;
-  transition-duration: 2s;
+  -webkit-transition-property: border-color, border-width, height, -webkit-transform;
+  -moz-transition-property: border-color, border-width, height, -moz-transform;
+  -o-transition-property: border-color, border-width, height, -o-transform;
+  transition-property: border-color, border-width, height, transform;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
   border: 4px solid gray;
   float: left;
   height: 128px;
@@ -63,3 +63,46 @@ header, footer {
 
 .inactive > img {
   opacity: 0.5; }
+
+.pos-0.start {
+  -webkit-transform: translate3d(-168px, -128px, 0);
+  -moz-transform: translate3d(-168px, -128px, 0);
+  -ms-transform: translate3d(-168px, -128px, 0);
+  -o-transform: translate3d(-168px, -128px, 0);
+  transform: translate3d(-168px, -128px, 0); }
+
+.pos-1 {
+  -webkit-transition-delay: 0.1s;
+  -moz-transition-delay: 0.1s;
+  -o-transition-delay: 0.1s;
+  transition-delay: 0.1s; }
+  .pos-1.start {
+    -webkit-transform: translate3d(168px, -128px, 0);
+    -moz-transform: translate3d(168px, -128px, 0);
+    -ms-transform: translate3d(168px, -128px, 0);
+    -o-transform: translate3d(168px, -128px, 0);
+    transform: translate3d(168px, -128px, 0); }
+
+.pos-2 {
+  -webkit-transition-delay: 0.2s;
+  -moz-transition-delay: 0.2s;
+  -o-transition-delay: 0.2s;
+  transition-delay: 0.2s; }
+  .pos-2.start {
+    -webkit-transform: translate3d(-168px, 128px, 0);
+    -moz-transform: translate3d(-168px, 128px, 0);
+    -ms-transform: translate3d(-168px, 128px, 0);
+    -o-transform: translate3d(-168px, 128px, 0);
+    transform: translate3d(-168px, 128px, 0); }
+
+.pos-3 {
+  -webkit-transition-delay: 0.3s;
+  -moz-transition-delay: 0.3s;
+  -o-transition-delay: 0.3s;
+  transition-delay: 0.3s; }
+  .pos-3.start {
+    -webkit-transform: translate3d(168px, 128px, 0);
+    -moz-transform: translate3d(168px, 128px, 0);
+    -ms-transform: translate3d(168px, 128px, 0);
+    -o-transform: translate3d(168px, 128px, 0);
+    transform: translate3d(168px, 128px, 0); }
