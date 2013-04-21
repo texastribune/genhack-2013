@@ -71,7 +71,12 @@
         if (this.correct.indexOf(idx) !== -1) {
           $tile.addClass('correct');
         }
-        $tile.on('click', this.click).appendTo($canvas);
+        $tile.on('click', this.click);
+        if (Math.random() > 0.5) {
+          $tile.appendTo($canvas);
+        } else {
+          $tile.prependTo($canvas);
+        }
         _results.push(console.log(tile, idx));
       }
       return _results;

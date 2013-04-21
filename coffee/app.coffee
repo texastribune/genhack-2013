@@ -39,7 +39,11 @@ class Round
       $tile = $("<img src='#{tile}'>")
       if @correct.indexOf(idx) != -1
         $tile.addClass('correct')
-      $tile.on('click', @click).appendTo($canvas)
+      $tile.on('click', @click)
+      if Math.random() > 0.5
+        $tile.appendTo($canvas)
+      else
+        $tile.prependTo($canvas)
       console.log tile, idx
 
 
