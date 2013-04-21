@@ -1,6 +1,6 @@
 body {
   margin: 0 auto;
-  width: 352px; }
+  width: 336px; }
 
 #canvas {
   position: relative; }
@@ -10,11 +10,15 @@ body {
   top: 0;
   left: 0; }
 
-img {
+.tile {
   border: 4px solid gray;
-  display: block;
   float: left;
-  width: 168px; }
+  width: 160px; }
+  .tile > img {
+    display: block; }
 
 .active {
   border-color: red; }
+
+.inactive > img {
+  opacity: 0.5; }

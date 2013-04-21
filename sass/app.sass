@@ -1,5 +1,5 @@
-$imgWidth: 168px
-$imgHeight: 168px
+$imgWidth: 160px
+$imgHeight: 160px
 $borderWidth: 4px
 $boxWidth: $imgWidth + 2 * $borderWidth
 
@@ -15,11 +15,16 @@ body
   top: 0
   left: 0
 
-img
+.tile
   border: $borderWidth solid gray
-  display: block
   float: left
   width: $imgWidth
+  > img
+    display: block
 
 .active
   border-color: red
+
+.inactive
+  > img
+    opacity: 0.5

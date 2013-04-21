@@ -31,11 +31,12 @@ class Round
   click: (e) ->
     $elem = $(this)
     $elem.toggleClass('active')
-    $correct = $canvas.find('.correct')
-    $active = $canvas.find('.active')
+    $tiles = $canvas.find('.tile')
+    $correct = $tiles.filter('.correct')
+    $active = $tiles.filter('.active')
     if $correct.length == $active.length
       # disable all click handlers
-      $canvas.find('img').off('click')
+      $tiles.off('click')
       if $correct.not('.active').length == 0
         g.showSuccess()
       else
@@ -48,7 +49,7 @@ class Round
   display: ->
     $canvas.empty()
     for tile, idx in @tiles
-      $tile = $("<img src='#{tile}'>")
+      $tile = $("<div class='tile'><img src='#{tile}'></div>")
       if @correct.indexOf(idx) != -1
         $tile.addClass('correct')
       $tile.on('click', @click)

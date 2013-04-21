@@ -57,13 +57,14 @@
     }
 
     Round.prototype.click = function(e) {
-      var $active, $correct, $elem;
+      var $active, $correct, $elem, $tiles;
       $elem = $(this);
       $elem.toggleClass('active');
-      $correct = $canvas.find('.correct');
-      $active = $canvas.find('.active');
+      $tiles = $canvas.find('.tile');
+      $correct = $tiles.filter('.correct');
+      $active = $tiles.filter('.active');
       if ($correct.length === $active.length) {
-        $canvas.find('img').off('click');
+        $tiles.off('click');
         if ($correct.not('.active').length === 0) {
           g.showSuccess();
         } else {
@@ -82,7 +83,7 @@
       _results = [];
       for (idx = _i = 0, _len = _ref.length; _i < _len; idx = ++_i) {
         tile = _ref[idx];
-        $tile = $("<img src='" + tile + "'>");
+        $tile = $("<div class='tile'><img src='" + tile + "'></div>");
         if (this.correct.indexOf(idx) !== -1) {
           $tile.addClass('correct');
         }
