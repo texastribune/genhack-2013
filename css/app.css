@@ -3,6 +3,10 @@ body {
   max-width: 336px;
   width: 100%; }
 
+header, footer {
+  font-family: "Knockout 49 A", "Knockout 49 B";
+  font-size: 1.5em; }
+
 #canvas {
   position: relative; }
 
