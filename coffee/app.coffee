@@ -36,7 +36,7 @@ class Round
     $active = $tiles.filter('.active')
     if $correct.length == $active.length
       # disable all click handlers
-      $tiles.off('click')
+      $tiles.off('click').not('.active').addClass('inactive')
       if $correct.not('.active').length == 0
         g.showSuccess()
       else

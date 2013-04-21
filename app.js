@@ -64,7 +64,7 @@
       $correct = $tiles.filter('.correct');
       $active = $tiles.filter('.active');
       if ($correct.length === $active.length) {
-        $tiles.off('click');
+        $tiles.off('click').not('.active').addClass('inactive');
         if ($correct.not('.active').length === 0) {
           g.showSuccess();
         } else {
