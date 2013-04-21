@@ -79,12 +79,13 @@ class Game
     msg = @currentRound.success
     url = @currentRound.url
     content = "<div class='notice success'>
-      <a href='#{url}'>#{msg}</a>
-      <a href='#{url}' class='permalink'>Full Story</a>
-
+      <a href='#{url}' rel='nofollow' target='_blank'>#{msg}</a>
+      <a href='#{url}' rel='nofollow' target='_blank' class='permalink'><i class='icon-share-alt'></i> full story</a>
       </div>
     "
-    $(content).appendTo($canvas)
+    $(content).appendTo($canvas).on('click', (e) ->
+      e.stopPropagation()
+    )
 
   showFailure: ->
     @showSuccess()  # TODO

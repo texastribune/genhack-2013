@@ -121,8 +121,10 @@
       var content, msg, url;
       msg = this.currentRound.success;
       url = this.currentRound.url;
-      content = "<div class='notice success'>      <a href='" + url + "'>" + msg + "</a>      <a href='" + url + "' class='permalink'>Full Story</a>      </div>    ";
-      return $(content).appendTo($canvas);
+      content = "<div class='notice success'>      <a href='" + url + "' rel='nofollow' target='_blank'>" + msg + "</a>      <a href='" + url + "' rel='nofollow' target='_blank' class='permalink'><i class='icon-share-alt'></i> full story</a>      </div>    ";
+      return $(content).appendTo($canvas).on('click', function(e) {
+        return e.stopPropagation();
+      });
     };
 
     Game.prototype.showFailure = function() {

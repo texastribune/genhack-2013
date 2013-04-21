@@ -30,7 +30,12 @@ footer {
     display: block;
     text-decoration: none; }
   .notice .permalink {
+    color: darkgrey;
     font-size: 0.7em; }
+  .notice i {
+    color: #ffcc20;
+    font-size: 0.8em;
+    margin-right: 0.1em; }
 
 .tile {
   -webkit-box-sizing: border-box;
