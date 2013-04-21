@@ -60,7 +60,7 @@
         return;
       }
       if ($correct.length === $active.length) {
-        $tiles.off('.game').not('.active').addClass('inactive');
+        $tiles.off('.game').not('.active').addClass('end');
         if ($correct.not('.active').length === 0) {
           $canvas.addClass('correct');
           this.showSuccess();

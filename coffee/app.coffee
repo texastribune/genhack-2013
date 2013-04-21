@@ -36,7 +36,7 @@ class Game
       return
     if $correct.length == $active.length
       # disable all click handlers
-      $tiles.off('.game').not('.active').addClass('inactive')
+      $tiles.off('.game').not('.active').addClass('end')
       if $correct.not('.active').length == 0
         $canvas.addClass('correct')
         @showSuccess()
