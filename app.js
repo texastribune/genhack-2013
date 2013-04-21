@@ -81,28 +81,28 @@
         apos2 = $active.filter('.pos-2').length;
         apos3 = $active.filter('.pos-3').length;
         lookup = "" + apos0 + apos1 + apos2 + apos3;
-        free = [0, 1];
-        if (apos0) {
+        free = [2, 3];
+        if (apos2) {
           free.shift();
         }
-        if (apos1) {
+        if (apos3) {
           free.pop();
         }
         switch (lookup) {
+          case "1100":
+            $active.addClass('shiftS');
+            break;
           case "1010":
-            $active.filter('.pos-2').addClass('shiftNE');
+            $active.filter('.pos-0').addClass('shiftSE');
             break;
           case "1001":
-            $active.filter('.pos-3').addClass('shiftN');
-            break;
-          case "0011":
-            $active.addClass('shiftN');
+            $active.filter('.pos-0').addClass('shiftS');
             break;
           case "0110":
-            $active.filter('.pos-2').addClass('shiftN');
+            $active.filter('.pos-1').addClass('shiftS');
             break;
           case "0101":
-            $active.filter('.pos-3').addClass('shiftNW');
+            $active.filter('.pos-1').addClass('shiftSW');
         }
         if ($correct.not('.active').length === 0) {
           $canvas.addClass('correct');

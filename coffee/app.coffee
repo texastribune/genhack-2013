@@ -44,22 +44,22 @@ class Game
       apos2 = $active.filter('.pos-2').length
       apos3 = $active.filter('.pos-3').length
       lookup = "" + apos0 + apos1 + apos2 + apos3
-      free = [0, 1]
-      if apos0
+      free = [2, 3]
+      if apos2
         free.shift()
-      if apos1
+      if apos3
         free.pop()
       switch lookup
+        when "1100"
+          $active.addClass('shiftS')
         when "1010"
-          $active.filter('.pos-2').addClass('shiftNE')
+          $active.filter('.pos-0').addClass('shiftSE')
         when "1001"
-          $active.filter('.pos-3').addClass('shiftN')
-        when "0011"
-          $active.addClass('shiftN')
+          $active.filter('.pos-0').addClass('shiftS')
         when "0110"
-          $active.filter('.pos-2').addClass('shiftN')
+          $active.filter('.pos-1').addClass('shiftS')
         when "0101"
-          $active.filter('.pos-3').addClass('shiftNW')
+          $active.filter('.pos-1').addClass('shiftSW')
 
       # puzzle solved correctly?
       if $correct.not('.active').length == 0
