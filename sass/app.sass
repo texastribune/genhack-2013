@@ -2,6 +2,9 @@ $imgWidth: 160px
 $imgHeight: 160px
 $borderWidth: 4px
 $boxWidth: $imgWidth + 2 * $borderWidth
+$boxHeight: $imgHeight + 2 * $borderWidth
+
+$narrowing: 20px
 
 body
   margin: 0 auto
@@ -18,12 +21,19 @@ body
 .tile
   border: $borderWidth solid gray
   float: left
+  overflow: hidden
   width: $imgWidth
   > img
     display: block
 
 .active
   border-color: red
+  border-top-width: $narrowing + $borderWidth
+  border-bottom-width: $narrowing + $borderWidth
+  height: $imgHeight - $narrowing * 2
+  > img
+    position: relative
+    top: -$narrowing
 
 .inactive
   > img
