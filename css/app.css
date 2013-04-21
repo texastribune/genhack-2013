@@ -15,9 +15,12 @@ header, footer {
   position: relative; }
 
 .notice {
+  font-family: "Knockout 49 A", "Knockout 49 B";
+  font-size: 2em;
+  left: 0;
   position: absolute;
-  top: 0;
-  left: 0; }
+  top: 120px;
+  z-index: -1; }
 
 .tile {
   -webkit-box-sizing: border-box;
@@ -35,7 +38,8 @@ header, footer {
   float: left;
   height: 128px;
   overflow: hidden;
-  width: 50%; }
+  width: 50%;
+  z-index: 20; }
   .tile > img {
     -webkit-transition-property: top, opacity;
     -moz-transition-property: top, opacity;
@@ -57,7 +61,8 @@ header, footer {
     top: -25px; }
 
 .active {
-  border-color: green; }
+  border-color: green;
+  z-index: 21; }
 
 .correct .active {
   border-color: lime; }

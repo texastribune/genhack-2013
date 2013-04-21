@@ -16,15 +16,15 @@ class Game
     $canvas.find('.tile')
     .on 'mousedown.game', ->
       self.down = this
-    .on 'mouseup.game', ->
+    .on 'mouseup.game', (e) ->
       if this == self.down
         return
       $(this).addClass('active')
       $(self.down).addClass('active')
       self.down = undefined
-      self.check()
+      self.check(e)
 
-  check: ->
+  check: (e) ->
     self = this
     $tiles = $canvas.find('.tile')
     $correct = $tiles.filter('.correct')
@@ -67,8 +67,12 @@ class Game
         @showSuccess()
       else
         @showFailure()
+      e.stopPropagation()
+      $(document).one 'click', ->
+        self.next()
+        return
+      return
       # setTimeout(->
-      #     self.next()
       #   , 5000)
 
   showSuccess: ->
@@ -90,7 +94,7 @@ class Round
   click: (e) ->
     $elem = $(this)
     $elem.toggleClass('active')
-    g.check()
+    g.check(e)
 
   display: ->
     for tile, idx in @tiles

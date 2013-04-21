@@ -35,18 +35,18 @@
       this.currentRound.display();
       return $canvas.find('.tile').on('mousedown.game', function() {
         return self.down = this;
-      }).on('mouseup.game', function() {
+      }).on('mouseup.game', function(e) {
         if (this === self.down) {
           return;
         }
         $(this).addClass('active');
         $(self.down).addClass('active');
         self.down = void 0;
-        return self.check();
+        return self.check(e);
       });
     };
 
-    Game.prototype.check = function() {
+    Game.prototype.check = function(e) {
       var $active, $correct, $tiles, apos0, apos1, apos2, apos3, free, lookup, self;
       self = this;
       $tiles = $canvas.find('.tile');
@@ -91,10 +91,14 @@
         }
         if ($correct.not('.active').length === 0) {
           $canvas.addClass('correct');
-          return this.showSuccess();
+          this.showSuccess();
         } else {
-          return this.showFailure();
+          this.showFailure();
         }
+        e.stopPropagation();
+        $(document).one('click', function() {
+          self.next();
+        });
       }
     };
 
@@ -126,7 +130,7 @@
       var $elem;
       $elem = $(this);
       $elem.toggleClass('active');
-      return g.check();
+      return g.check(e);
     };
 
     Round.prototype.display = function() {

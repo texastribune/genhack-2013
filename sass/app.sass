@@ -1,6 +1,7 @@
 @import "compass/css3/box-sizing"
 @import "compass/css3/transform"
 @import "compass/css3/transition"
+@import "compass/utilities/general/clearfix"
 
 $columns: 2
 $imgWidth: 160px
@@ -37,9 +38,12 @@ header, footer
   position: relative
 
 .notice
-  position: absolute
-  top: 0
+  font-family: $knockout49
+  font-size: 2em
   left: 0
+  position: absolute
+  top: $imgHeight
+  z-index: -1
 
 .tile
   +box-sizing(border-box)
@@ -50,6 +54,7 @@ header, footer
   height: $boxHeight
   overflow: hidden
   width: 100% / $columns
+  z-index: 20
   > img
     +transition-property(top, opacity)
     +transition-duration(2s)
@@ -67,6 +72,7 @@ header, footer
 .active
   // @extend %narrowed
   border-color: green
+  z-index: 21
 
 .correct .active
   border-color: lime
