@@ -1,6 +1,7 @@
 body {
   margin: 0 auto;
-  width: 336px; }
+  max-width: 336px;
+  width: 100%; }
 
 #canvas {
   position: relative; }
@@ -26,7 +27,7 @@ body {
   float: left;
   height: 168px;
   overflow: hidden;
-  width: 168px; }
+  width: 50%; }
   .tile > img {
     -webkit-transition-property: top, opacity;
     -moz-transition-property: top, opacity;
@@ -37,6 +38,7 @@ body {
     -o-transition-duration: 2s;
     transition-duration: 2s;
     display: block;
+    max-width: 100%;
     position: relative;
     top: 0; }
 

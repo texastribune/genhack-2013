@@ -1,6 +1,7 @@
 @import "compass/css3/box-sizing"
 @import "compass/css3/transition"
 
+$columns: 2
 $imgWidth: 160px
 $imgHeight: 160px
 $borderWidth: 4px
@@ -11,7 +12,8 @@ $narrowing: 25px
 
 body
   margin: 0 auto
-  width: 2 * $boxWidth
+  max-width: $columns * $boxWidth
+  width: 100%
 
 #canvas
   position: relative
@@ -29,11 +31,12 @@ body
   float: left
   height: $boxHeight
   overflow: hidden
-  width: $boxWidth
+  width: 100% / $columns
   > img
     +transition-property(top, opacity)
     +transition-duration(2s)
     display: block
+    max-width: 100%
     position: relative
     top: 0
 
