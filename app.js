@@ -18,6 +18,7 @@
 
     function Game() {
       this.rounds = [];
+      this.idx = -1;
     }
 
     Game.prototype.addRound = function(round) {
@@ -26,12 +27,9 @@
     };
 
     Game.prototype.next = function() {
-      if (this.rounds.length) {
-        this.currentRound = this.rounds.shift();
-        return this.currentRound.display();
-      } else {
-        return console.log('no more rounds!');
-      }
+      this.idx = (this.idx + 1) % this.rounds.length;
+      this.currentRound = this.rounds[this.idx];
+      return this.currentRound.display();
     };
 
     return Game;

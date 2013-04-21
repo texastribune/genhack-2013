@@ -1,17 +1,16 @@
 class Game
   constructor: ->
     @rounds = []
+    @idx = -1
 
   addRound: (round) ->
     round.game = this
     @rounds.push(round)
 
   next: ->
-    if @rounds.length
-      @currentRound = @rounds.shift()
-      @currentRound.display()
-    else
-      console.log 'no more rounds!'
+    @idx = (@idx + 1) % @rounds.length
+    @currentRound = @rounds[@idx]
+    @currentRound.display()
 
 
 # A round of the game
