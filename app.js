@@ -118,17 +118,23 @@
     };
 
     Game.prototype.showSuccess = function() {
-      var content, msg, url;
-      msg = this.currentRound.success;
-      url = this.currentRound.url;
-      content = "<div class='notice success'>      <a href='" + url + "' rel='nofollow' target='_blank'>" + msg + "</a>      <a href='" + url + "' rel='nofollow' target='_blank' class='permalink'><i class='icon-share-alt'></i> full story</a>      </div>    ";
-      return $(content).appendTo($canvas).on('click', function(e) {
-        return e.stopPropagation();
-      });
+      $("<div class='indicator success'><i class='icon-star'></i></div").appendTo($canvas);
+      return this.showMsg();
     };
 
     Game.prototype.showFailure = function() {
-      return this.showSuccess();
+      $("<div class='indicator failure'><i class='icon-bolt'></i></div").appendTo($canvas);
+      return this.showMsg();
+    };
+
+    Game.prototype.showMsg = function() {
+      var content, msg, url;
+      msg = this.currentRound.success;
+      url = this.currentRound.url;
+      content = "<div class='notice'>      <a href='" + url + "' rel='nofollow' target='_blank'>" + msg + "</a>      <a href='" + url + "' rel='nofollow' target='_blank' class='permalink'><i class='icon-share-alt'></i> full story</a>      </div>    ";
+      return $(content).appendTo($canvas).on('click', function(e) {
+        return e.stopPropagation();
+      });
     };
 
     return Game;

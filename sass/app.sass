@@ -46,6 +46,19 @@ footer
 #canvas
   position: relative
 
+.indicator
+  font-size: 10em
+  line-height: 2 * $boxHeight
+  position: absolute
+  text-align: center
+  width: 100%
+
+  &.success
+    color: green
+
+  &.failure
+    color: red
+
 .notice
   font-family: $knockout49
   font-size: 2em
@@ -69,7 +82,7 @@ footer
   +box-sizing(border-box)
   +transition-property(border-color, border-width, height, transform)
   +transition-duration(1s)
-  border: $borderWidth solid $backgroundColor
+  border: $borderWidth solid transparent
   float: left
   height: $boxHeight
   overflow: hidden
@@ -92,11 +105,11 @@ footer
 
 .active
   // @extend %narrowed
-  border-color: red
+  // border-color: red
   z-index: 21
 
-.correct .active
-  border-color: lime
+// .correct .active
+//   border-color: lime
 
 .inactive
   @extend %narrowed

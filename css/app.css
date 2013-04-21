@@ -18,6 +18,17 @@ footer {
 #canvas {
   position: relative; }
 
+.indicator {
+  font-size: 10em;
+  line-height: 220px;
+  position: absolute;
+  text-align: center;
+  width: 100%; }
+  .indicator.success {
+    color: green; }
+  .indicator.failure {
+    color: red; }
+
 .notice {
   font-family: "Knockout 49 A", "Knockout 49 B";
   font-size: 2em;
@@ -49,7 +60,7 @@ footer {
   -moz-transition-duration: 1s;
   -o-transition-duration: 1s;
   transition-duration: 1s;
-  border: 2px solid #333333;
+  border: 2px solid transparent;
   float: left;
   height: 110px;
   overflow: hidden;
@@ -77,11 +88,7 @@ footer {
     top: -25px; }
 
 .active {
-  border-color: red;
   z-index: 21; }
-
-.correct .active {
-  border-color: lime; }
 
 .inactive > img {
   opacity: 0.5; }

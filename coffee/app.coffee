@@ -76,9 +76,19 @@ class Game
       #   , 5000)
 
   showSuccess: ->
+    $("<div class='indicator success'><i class='icon-star'></i></div")
+      .appendTo($canvas)
+    @showMsg()
+
+  showFailure: ->
+    $("<div class='indicator failure'><i class='icon-bolt'></i></div")
+      .appendTo($canvas)
+    @showMsg()
+
+  showMsg: ->
     msg = @currentRound.success
     url = @currentRound.url
-    content = "<div class='notice success'>
+    content = "<div class='notice'>
       <a href='#{url}' rel='nofollow' target='_blank'>#{msg}</a>
       <a href='#{url}' rel='nofollow' target='_blank' class='permalink'><i class='icon-share-alt'></i> full story</a>
       </div>
@@ -86,9 +96,6 @@ class Game
     $(content).appendTo($canvas).on('click', (e) ->
       e.stopPropagation()
     )
-
-  showFailure: ->
-    @showSuccess()  # TODO
 
 
 # A round of the game
