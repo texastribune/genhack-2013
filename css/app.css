@@ -1,5 +1,12 @@
+body {
+  margin: 0 auto;
+  width: 352px; }
+
 img {
-  border: 4px solid gray; }
+  border: 4px solid gray;
+  display: block;
+  float: left;
+  width: 168px; }
 
 .active {
   border-color: red; }
