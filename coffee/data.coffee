@@ -1,19 +1,20 @@
 rounds = [
     tiles: [
+        'http://i.imgur.com/Zbkx6tFb.jpg'  # bulldog
         'http://i.imgur.com/ICn6oM3b.jpg'  # boy
-        'http://i.imgur.com/9JdVHQOb.jpg'  # django
-        'http://i.imgur.com/FIUY1Fjb.jpg'  # hallway
-        'http://i.imgur.com/8yxtHpvb.jpg'  # uno girl
+        'http://i.imgur.com/cdXotPXb.jpg'  # puppy
+        'http://i.imgur.com/49701U7b.jpg'  # hypnotoad
+        # 'http://i.imgur.com/8yxtHpvb.jpg'  # uno girl
     ]
     correct: [0, 2]
     success: 'You won!'
 ,
     tiles: [
-        'http://i.imgur.com/MRrUKW1b.jpg'  # dude
-        'http://i.imgur.com/V5hfU33b.jpg'  # eyebrows
-        'http://i.imgur.com/WTPh4N9b.jpg'  # ice cream
-        'http://i.imgur.com/5Or8VyWb.jpg'  # diploma
+        'http://i.imgur.com/iIlPkLsb.jpg'  # otters
+        'http://i.imgur.com/vE34d4Lb.jpg'  # american ron
+        'http://i.imgur.com/RNMrLbHb.jpg'  # jonah hill
+        'http://i.imgur.com/nNeCLSWb.jpg'  # wedding reporter
     ]
-    correct: [0, 2]
+    correct: [1, 3]
     success: 'You won!'
 ]

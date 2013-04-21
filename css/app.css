@@ -53,7 +53,7 @@ header, footer {
     top: -25px; }
 
 .active {
-  border-color: red; }
+  border-color: lime; }
 
 .inactive > img {
   opacity: 0.5; }
