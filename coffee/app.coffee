@@ -76,13 +76,19 @@ class Game
       #   , 5000)
 
   showSuccess: ->
-    $("<div class='indicator success'><i class='icon-star'></i></div")
+    $el = $("<div class='indicator success start'><i class='icon-star'></i></div")
       .appendTo($canvas)
+    setTimeout(->
+      $el.removeClass('start')
+    , 100)
     @showMsg()
 
   showFailure: ->
-    $("<div class='indicator failure'><i class='icon-bolt'></i></div")
+    $el = $("<div class='indicator failure start'><i class='icon-bolt'></i></div")
       .appendTo($canvas)
+    setTimeout(->
+      $el.removeClass('start')
+    , 100)
     @showMsg()
 
   showMsg: ->

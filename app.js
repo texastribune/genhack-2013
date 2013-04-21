@@ -118,12 +118,20 @@
     };
 
     Game.prototype.showSuccess = function() {
-      $("<div class='indicator success'><i class='icon-star'></i></div").appendTo($canvas);
+      var $el;
+      $el = $("<div class='indicator success start'><i class='icon-star'></i></div").appendTo($canvas);
+      setTimeout(function() {
+        return $el.removeClass('start');
+      }, 100);
       return this.showMsg();
     };
 
     Game.prototype.showFailure = function() {
-      $("<div class='indicator failure'><i class='icon-bolt'></i></div").appendTo($canvas);
+      var $el;
+      $el = $("<div class='indicator failure start'><i class='icon-bolt'></i></div").appendTo($canvas);
+      setTimeout(function() {
+        return $el.removeClass('start');
+      }, 100);
       return this.showMsg();
     };
 
