@@ -77,11 +77,17 @@ class Game
 
   showSuccess: ->
     msg = @currentRound.success
-    $("<div class='notice success'>#{msg}</div>").appendTo($canvas)
+    url = @currentRound.url
+    content = "<div class='notice success'>
+      <a href='#{url}'>#{msg}</a>
+      <a href='#{url}' class='permalink'>Full Story</a>
+
+      </div>
+    "
+    $(content).appendTo($canvas)
 
   showFailure: ->
-    msg = @currentRound.success
-    $("<div class='notice failure'>NOPE! #{msg}</div>").appendTo($canvas)
+    @showSuccess()  # TODO
 
 
 # A round of the game
@@ -90,6 +96,7 @@ class Round
     @tiles = data.tiles
     @correct = data.correct
     @success = data.success
+    @url = data.url
 
   click: (e) ->
     $elem = $(this)

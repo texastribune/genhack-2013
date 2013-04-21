@@ -118,15 +118,15 @@
     };
 
     Game.prototype.showSuccess = function() {
-      var msg;
+      var content, msg, url;
       msg = this.currentRound.success;
-      return $("<div class='notice success'>" + msg + "</div>").appendTo($canvas);
+      url = this.currentRound.url;
+      content = "<div class='notice success'>      <a href='" + url + "'>" + msg + "</a>      <a href='" + url + "' class='permalink'>Full Story</a>      </div>    ";
+      return $(content).appendTo($canvas);
     };
 
     Game.prototype.showFailure = function() {
-      var msg;
-      msg = this.currentRound.success;
-      return $("<div class='notice failure'>NOPE! " + msg + "</div>").appendTo($canvas);
+      return this.showSuccess();
     };
 
     return Game;
@@ -139,6 +139,7 @@
       this.tiles = data.tiles;
       this.correct = data.correct;
       this.success = data.success;
+      this.url = data.url;
     }
 
     Round.prototype.click = function(e) {
