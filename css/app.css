@@ -2,6 +2,14 @@ body {
   margin: 0 auto;
   width: 352px; }
 
+#canvas {
+  position: relative; }
+
+.notice {
+  position: absolute;
+  top: 0;
+  left: 0; }
+
 img {
   border: 4px solid gray;
   display: block;

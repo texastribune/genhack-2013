@@ -32,6 +32,18 @@
       return this.currentRound.display();
     };
 
+    Game.prototype.showSuccess = function() {
+      var msg;
+      msg = this.currentRound.success;
+      return $("<div class='notice success'>" + msg + "</div>").appendTo($canvas);
+    };
+
+    Game.prototype.showFailure = function() {
+      var msg;
+      msg = this.currentRound.success;
+      return $("<div class='notice failure'>NOPE! " + msg + "</div>").appendTo($canvas);
+    };
+
     return Game;
 
   })();
@@ -51,12 +63,15 @@
       $correct = $canvas.find('.correct');
       $active = $canvas.find('.active');
       if ($correct.length === $active.length) {
+        $canvas.find('img').off('click');
         if ($correct.not('.active').length === 0) {
-          console.log('yay');
+          g.showSuccess();
         } else {
-          console.log('boooo');
+          g.showFailure();
         }
-        return g.next();
+        return setTimeout(function() {
+          return g.next();
+        }, 5000);
       }
     };
 

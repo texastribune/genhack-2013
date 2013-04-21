@@ -12,6 +12,14 @@ class Game
     @currentRound = @rounds[@idx]
     @currentRound.display()
 
+  showSuccess: ->
+    msg = @currentRound.success
+    $("<div class='notice success'>#{msg}</div>").appendTo($canvas)
+
+  showFailure: ->
+    msg = @currentRound.success
+    $("<div class='notice failure'>NOPE! #{msg}</div>").appendTo($canvas)
+
 
 # A round of the game
 class Round
@@ -26,11 +34,15 @@ class Round
     $correct = $canvas.find('.correct')
     $active = $canvas.find('.active')
     if $correct.length == $active.length
+      # disable all click handlers
+      $canvas.find('img').off('click')
       if $correct.not('.active').length == 0
-        console.log 'yay'
+        g.showSuccess()
       else
-        console.log 'boooo'
-      g.next()
+        g.showFailure()
+      setTimeout(->
+          g.next()
+        , 5000)
 
 
   display: ->
