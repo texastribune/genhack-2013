@@ -32,9 +32,9 @@
       this.idx = (this.idx + 1) % this.rounds.length;
       this.currentRound = this.rounds[this.idx];
       this.currentRound.display();
-      return $canvas.find('.tile').on('mousedown', function() {
+      return $canvas.find('.tile').on('mousedown.game', function() {
         return self.down = this;
-      }).on('mouseup', function() {
+      }).on('mouseup.game', function() {
         if (this === self.down) {
           return;
         }
@@ -59,7 +59,7 @@
         return;
       }
       if ($correct.length === $active.length) {
-        $tiles.off('click').not('.active').addClass('inactive');
+        $tiles.off('.game').not('.active').addClass('inactive');
         if ($correct.not('.active').length === 0) {
           this.showSuccess();
         } else {
@@ -114,13 +114,12 @@
         if (this.correct.indexOf(idx) !== -1) {
           $tile.addClass('correct');
         }
-        $tile.on('click', this.click);
+        $tile.on('click.game', this.click);
         if (Math.random() > 0.5) {
-          $tile.appendTo($canvas);
+          _results.push($tile.appendTo($canvas));
         } else {
-          $tile.prependTo($canvas);
+          _results.push($tile.prependTo($canvas));
         }
-        _results.push(console.log(tile, idx));
       }
       return _results;
     };

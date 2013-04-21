@@ -13,9 +13,9 @@ class Game
     @currentRound = @rounds[@idx]
     @currentRound.display()
     $canvas.find('.tile')
-    .on('mousedown', ->
-      self.down = this)
-    .on 'mouseup', ->
+    .on 'mousedown.game', ->
+      self.down = this
+    .on 'mouseup.game', ->
       if this == self.down
         return
       $(this).addClass('active')
@@ -35,7 +35,7 @@ class Game
       return
     if $correct.length == $active.length
       # disable all click handlers
-      $tiles.off('click').not('.active').addClass('inactive')
+      $tiles.off('.game').not('.active').addClass('inactive')
       if $correct.not('.active').length == 0
         @showSuccess()
       else
@@ -73,13 +73,12 @@ class Round
         .find('img')[0].draggable = false
       if @correct.indexOf(idx) != -1
         $tile.addClass('correct')
-      $tile.on('click', @click)
+      $tile.on('click.game', @click)
       if Math.random() > 0.5
         $tile.appendTo($canvas)
       else
         # $tile.appendTo($canvas)
         $tile.prependTo($canvas)
-      console.log tile, idx
 
 
 $canvas = $('#canvas')
