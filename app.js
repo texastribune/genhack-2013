@@ -27,9 +27,22 @@
     };
 
     Game.prototype.next = function() {
+      var self;
+      self = this;
       this.idx = (this.idx + 1) % this.rounds.length;
       this.currentRound = this.rounds[this.idx];
-      return this.currentRound.display();
+      this.currentRound.display();
+      return $canvas.find('.tile').on('mousedown', function() {
+        return self.down = this;
+      }).on('mouseup', function() {
+        if (this === self.down) {
+          return;
+        }
+        $(this).addClass('active');
+        $(self.down).addClass('active');
+        self.down = void 0;
+        return self.check();
+      });
     };
 
     Game.prototype.check = function() {
@@ -38,6 +51,13 @@
       $tiles = $canvas.find('.tile');
       $correct = $tiles.filter('.correct');
       $active = $tiles.filter('.active');
+      if ($active.length === 0) {
+        return;
+      }
+      if ($active.length > this.currentRound.correct.length) {
+        $active.removeClass('active');
+        return;
+      }
       if ($correct.length === $active.length) {
         $tiles.off('click').not('.active').addClass('inactive');
         if ($correct.not('.active').length === 0) {

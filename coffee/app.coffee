@@ -8,15 +8,31 @@ class Game
     @rounds.push(round)
 
   next: ->
+    self = this
     @idx = (@idx + 1) % @rounds.length
     @currentRound = @rounds[@idx]
     @currentRound.display()
+    $canvas.find('.tile')
+    .on('mousedown', ->
+      self.down = this)
+    .on 'mouseup', ->
+      if this == self.down
+        return
+      $(this).addClass('active')
+      $(self.down).addClass('active')
+      self.down = undefined
+      self.check()
 
   check: ->
     self = this
     $tiles = $canvas.find('.tile')
     $correct = $tiles.filter('.correct')
     $active = $tiles.filter('.active')
+    if $active.length == 0
+      return
+    if $active.length > @.currentRound.correct.length
+      $active.removeClass('active')
+      return
     if $correct.length == $active.length
       # disable all click handlers
       $tiles.off('click').not('.active').addClass('inactive')
