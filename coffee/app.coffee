@@ -12,6 +12,22 @@ class Game
     @currentRound = @rounds[@idx]
     @currentRound.display()
 
+  check: ->
+    self = this
+    $tiles = $canvas.find('.tile')
+    $correct = $tiles.filter('.correct')
+    $active = $tiles.filter('.active')
+    if $correct.length == $active.length
+      # disable all click handlers
+      $tiles.off('click').not('.active').addClass('inactive')
+      if $correct.not('.active').length == 0
+        @showSuccess()
+      else
+        @showFailure()
+      setTimeout(->
+          self.next()
+        , 5000)
+
   showSuccess: ->
     msg = @currentRound.success
     $("<div class='notice success'>#{msg}</div>").appendTo($canvas)
@@ -31,20 +47,7 @@ class Round
   click: (e) ->
     $elem = $(this)
     $elem.toggleClass('active')
-    $tiles = $canvas.find('.tile')
-    $correct = $tiles.filter('.correct')
-    $active = $tiles.filter('.active')
-    if $correct.length == $active.length
-      # disable all click handlers
-      $tiles.off('click').not('.active').addClass('inactive')
-      if $correct.not('.active').length == 0
-        g.showSuccess()
-      else
-        g.showFailure()
-      setTimeout(->
-          g.next()
-        , 5000)
-
+    g.check()
 
   display: ->
     $canvas.empty()

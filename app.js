@@ -32,6 +32,25 @@
       return this.currentRound.display();
     };
 
+    Game.prototype.check = function() {
+      var $active, $correct, $tiles, self;
+      self = this;
+      $tiles = $canvas.find('.tile');
+      $correct = $tiles.filter('.correct');
+      $active = $tiles.filter('.active');
+      if ($correct.length === $active.length) {
+        $tiles.off('click').not('.active').addClass('inactive');
+        if ($correct.not('.active').length === 0) {
+          this.showSuccess();
+        } else {
+          this.showFailure();
+        }
+        return setTimeout(function() {
+          return self.next();
+        }, 5000);
+      }
+    };
+
     Game.prototype.showSuccess = function() {
       var msg;
       msg = this.currentRound.success;
@@ -57,23 +76,10 @@
     }
 
     Round.prototype.click = function(e) {
-      var $active, $correct, $elem, $tiles;
+      var $elem;
       $elem = $(this);
       $elem.toggleClass('active');
-      $tiles = $canvas.find('.tile');
-      $correct = $tiles.filter('.correct');
-      $active = $tiles.filter('.active');
-      if ($correct.length === $active.length) {
-        $tiles.off('click').not('.active').addClass('inactive');
-        if ($correct.not('.active').length === 0) {
-          g.showSuccess();
-        } else {
-          g.showFailure();
-        }
-        return setTimeout(function() {
-          return g.next();
-        }, 5000);
-      }
+      return g.check();
     };
 
     Round.prototype.display = function() {
