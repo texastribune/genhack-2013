@@ -1,3 +1,5 @@
+@import "compass/css3/transition"
+
 $imgWidth: 160px
 $imgHeight: 160px
 $borderWidth: 4px
@@ -19,20 +21,24 @@ body
   left: 0
 
 .tile
+  +transition-property(border-width, height)
+  +transition-duration(2s)
   border: $borderWidth solid gray
+  box-sizing: border-box
   float: left
+  height: $boxHeight
   overflow: hidden
-  width: $imgWidth
+  width: $boxWidth
   > img
+    +single-transition(top, 2s)
     display: block
+    position: relative
 
 .active
   border-color: red
   border-top-width: $narrowing + $borderWidth
   border-bottom-width: $narrowing + $borderWidth
-  height: $imgHeight - $narrowing * 2
   > img
-    position: relative
     top: -$narrowing
 
 .inactive
