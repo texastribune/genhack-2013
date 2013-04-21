@@ -64,7 +64,7 @@ header, footer
     top: -$narrowing
 
 .active
-  @extend %narrowed
+  // @extend %narrowed
   border-color: green
 
 .correct .active
@@ -75,21 +75,22 @@ header, footer
   > img
     opacity: 0.5
 
+
+@mixin _pos($idx)
+  +transition-delay(#{$idx / 10}s)
+  &.start, &.end
+    +transform(translate3d((($idx % $columns) * 2 - 1) * $boxWidth, (floor($idx / $columns) * 2 - 1) * $boxHeight, 0))
+  &.active
+    +transform(translate3d((($idx % $columns) * 2 - 1) * 10px, (floor($idx / $columns) * 2 - 1) * 10px, 0))
+
 .pos-0
-  &.start
-    +transform(translate3d(-$boxWidth, -$boxHeight, 0))
+  +_pos(0)
 
 .pos-1
-  +transition-delay(0.1s)
-  &.start
-    +transform(translate3d($boxWidth, -$boxHeight, 0))
+  +_pos(1)
 
 .pos-2
-  +transition-delay(0.2s)
-  &.start
-    +transform(translate3d(-$boxWidth, $boxHeight, 0))
+  +_pos(2)
 
 .pos-3
-  +transition-delay(0.3s)
-  &.start
-    +transform(translate3d($boxWidth, $boxHeight, 0))
+  +_pos(3)
