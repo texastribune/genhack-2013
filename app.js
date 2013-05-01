@@ -75,11 +75,11 @@
         return;
       }
       if ($correct.length === $active.length) {
-        $tiles.off('.game').not('.active').addClass('end');
-        apos0 = $active.filter('.pos-0').length;
-        apos1 = $active.filter('.pos-1').length;
-        apos2 = $active.filter('.pos-2').length;
-        apos3 = $active.filter('.pos-3').length;
+        $tiles.off('.game').not('.correct').addClass('end');
+        apos0 = $correct.filter('.pos-0').length;
+        apos1 = $correct.filter('.pos-1').length;
+        apos2 = $correct.filter('.pos-2').length;
+        apos3 = $correct.filter('.pos-3').length;
         lookup = "" + apos0 + apos1 + apos2 + apos3;
         free = [2, 3];
         if (apos2) {
@@ -90,19 +90,19 @@
         }
         switch (lookup) {
           case "1100":
-            $active.addClass('shiftS');
+            $correct.addClass('shiftS');
             break;
           case "1010":
-            $active.filter('.pos-0').addClass('shiftSE');
+            $correct.filter('.pos-0').addClass('shiftSE');
             break;
           case "1001":
-            $active.filter('.pos-0').addClass('shiftS');
+            $correct.filter('.pos-0').addClass('shiftS');
             break;
           case "0110":
-            $active.filter('.pos-1').addClass('shiftS');
+            $correct.filter('.pos-1').addClass('shiftS');
             break;
           case "0101":
-            $active.filter('.pos-1').addClass('shiftSW');
+            $correct.filter('.pos-1').addClass('shiftSW');
         }
         if ($correct.not('.active').length === 0) {
           $canvas.addClass('correct');

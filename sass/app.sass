@@ -135,10 +135,10 @@ footer
 
 @mixin _pos($idx)
   +transition-delay(#{$idx / 10}s)
-  &.start, &.end
-    +transform(translate3d((($idx % $columns) * 2 - 1) * 1.1 * $boxWidth, (floor($idx / $columns) * 2 - 1) * 1.1 * $boxHeight, 0))
   &.active
     +transform(translate3d((($idx % $columns) * 2 - 1) * 10px, (floor($idx / $columns) * 2 - 1) * 10px, 0))
+  &.start, &.end
+    +transform(translate3d((($idx % $columns) * 2 - 1) * 1.1 * $boxWidth, (floor($idx / $columns) * 2 - 1) * 1.1 * $boxHeight, 0))
 
 .pos-0
   +_pos(0)
@@ -153,11 +153,11 @@ footer
   +_pos(3)
 
 
-.shiftS.active  // need scope hack
+.shiftS.correct  // need scope hack
   +transform(translate3d(0, $boxHeight + 10px, 0))
 
-.shiftSE.active  // need scope hack
+.shiftSE.correct  // need scope hack
   +transform(translate3d($boxWidth + 10px, $boxHeight + 10px, 0))
 
-.shiftSW.active  // need scope hack
+.shiftSW.correct  // need scope hack
   +transform(translate3d(-$boxWidth - 10px, $boxHeight + 10px, 0))
